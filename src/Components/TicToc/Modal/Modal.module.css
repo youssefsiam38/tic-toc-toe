@@ -1,0 +1,32 @@
+.modal {
+    margin: 0 !important;
+    background-color: rgb(36, 204, 20);
+    border-radius: 40px;
+    padding-top: 25%;
+    height: 100%;
+    text-align: center;
+}
+
+.message {
+    color: white;
+    text-align: center;
+    font-size: 60px;  
+}
+
+.btn {
+    width: 30%;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 0;
+    border-radius: 30px;
+}
+
+.btn:hover, .btn:active {
+    background-color: aqua;
+}
+
+@media (min-width: 1300px) {
+    .modal {
+        padding-top: 20%;
+    }
+}

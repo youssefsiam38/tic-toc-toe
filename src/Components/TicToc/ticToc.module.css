@@ -1,0 +1,60 @@
+.ticToc {
+    height: 300px;
+    width: 400px;
+    background-color: aliceblue;
+}
+
+.img {
+    display: inline;
+}
+
+.label{
+    margin-bottom: 30px;
+}
+
+.label div {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+
+}
+
+.row {
+    height: 100%;
+}
+
+.hr {
+    width: 1000 !important;
+    margin: 0;
+    border: 3px solid black;
+}
+
+@media (max-width: 500px) {
+    .ticToc  {
+        height: 300px;
+        margin-top: 40px;
+    }
+    
+}
+
+@media (min-width: 500px) {
+    .ticToc {
+        height: 450px;
+        margin-top: 20px;
+    }
+}
+@media (min-width: 900px) {
+    .ticToc {
+        height: 550px;
+        margin-top: 20px;
+    }
+}
+@media (min-width: 1200px) {
+    .ticToc {
+        height: 659px;
+        margin-top: 0;
+    }
+    .label{
+        margin-bottom: 30px;
+    }
+}

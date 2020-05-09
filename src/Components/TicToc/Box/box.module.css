@@ -1,0 +1,39 @@
+.box {
+    height: 33%;
+    width: 33px;
+    text-align: center;
+    line-height: 33%;
+    border: 3px solid;
+    cursor: pointer;
+}
+
+.symbol {
+    margin-top: 11px;
+    height: 100%;
+    width: 100%;
+    line-height: 50px;
+    font-size: 70px;
+}
+
+@media (min-width: 500px) {
+    .symbol {
+        font-size: 150px;
+        padding-top: 30px;
+    }
+}
+
+@media (min-width: 600px) {
+    .symbol  {
+        line-height: 90px;
+        font-size: 150px;
+        padding-top: 0;
+
+    }
+}
+@media (min-width: 1200px) {
+    .symbol {
+        line-height: 160px;
+        font-size: 190px;
+        padding-top: 0;
+    }
+}
