@@ -60,7 +60,7 @@ class ticToc extends Component {
             if (this.checkWinner(id, symbol)) {
                 let winnerNo = symbol === 'x' ? 1 : 2
                 this.setState({ winner: winnerNo })
-                if(winnerNo === 1)
+                if (winnerNo === 1)
                     this.setState((prev) => {
                         let newScore = prev.player1Score++
                         return { player1Score: newScore }
@@ -70,7 +70,7 @@ class ticToc extends Component {
                         let newScore = prev.player2Score++
                         return { player2Score: newScore }
                     })
-                    
+
                 }
             }
         }
@@ -101,10 +101,10 @@ class ticToc extends Component {
             thereIsWinner = this.allChecked(symbol, 0, 4) || this.allChecked(symbol, 6, 7) || this.allChecked(symbol, 2, 5)
         }
 
-        if(thereIsWinner)
+        if (thereIsWinner)
             return thereIsWinner
         else {
-            if(this.state.checkedBoxes.length >= 8){
+            if (this.state.checkedBoxes.length >= 8) {
                 this.setState({
                     winner: 'Draw'
                 })
@@ -125,11 +125,11 @@ class ticToc extends Component {
 
         let thereIsNoSymbols = this.state.checkedBoxes.length === 0
 
-        if(!thereIsNoSymbols) {
-        for(let i = 0; i < 9; i++) {
-            document.getElementsByClassName('c' + i)[0].innerHTML = ''
+        if (!thereIsNoSymbols) {
+            for (let i = 0; i < 9; i++) {
+                document.getElementsByClassName('c' + i)[0].innerHTML = ''
 
-        }
+            }
 
         }
     }
@@ -145,8 +145,8 @@ class ticToc extends Component {
     undoHandler = () => {
         console.log(2)
         let thereIsNoSymbols = this.state.checkedBoxes.length === 0
-        
-        if(!thereIsNoSymbols) {
+
+        if (!thereIsNoSymbols) {
 
             let lastIndex = this.state.checkedBoxes.length - 1
             let topOfStack = this.state.checkedBoxes[lastIndex]
@@ -159,17 +159,17 @@ class ticToc extends Component {
                     counter
                 }
             })
-            
-            
+
+
         }
 
-        
+
 
     }
 
     bootstrapConbiner = (str) => {
         let tempClasses = str.split(' ')
-        
+
         for (let i = 0; i < tempClasses.length; i++) {
             tempClasses[i] = bClasses[tempClasses[i]]
         }
@@ -187,46 +187,49 @@ class ticToc extends Component {
     render() {
         return (
             <Aux>
-                <div className={bClasses.row}>
-                    <div className={this.labelClasses}>
-                        <div
-                        className={this.bootstrapConbiner("col-sm-3 col-12 text-center text-light")}>
-                            Player 1: {this.state.player1Score}
+                <div className={myClasses.body}>
+                    <div className={bClasses.row}>
+                        <div className={this.labelClasses}>
+                            <div
+                                className={this.bootstrapConbiner("col-sm-3 col-12 text-center text-light")}>
+                                Player 1: {this.state.player1Score}
+                            </div>
+                            {!this.state.winner ?
+                                <Aux>
+                                    <button
+                                        onClick={this.undoHandler}
+                                        className={this.bootstrapConbiner("col-2 text-light h-50 bg-danger align-self-center rounded-pill p-2 ")}>
+                                        Undo
+                                    </button>
+                                    <img src="/xopic.png" className={myClasses.img} style={{ marginTop: 20 }} alt="xo" height="60" width=""></img>
+                                    <button
+                                        onClick={this.refresh}
+                                        className={this.bootstrapConbiner("col-2 text-black h-50 bg-warning align-self-center rounded-pill p-2")}>
+                                        refresh
+                                    </button>
+                                </Aux> :
+                                <div className="col-6" />
+                            }
+                            <div
+                                className={this.bootstrapConbiner("col-12 text-center text-light")}>
+                                Player 2: {this.state.player2Score}
+                            </div>
                         </div>
-                        { !this.state.winner ?
-                            <Aux>
-                            <button
-                            onClick={this.undoHandler}
-                            className={this.bootstrapConbiner("col-2 text-light h-50 bg-danger align-self-center rounded-pill p-2 ")}>
-                                Undo
-                            </button>
-                            <img src="./myImg.png" className={myClasses.img} style={{marginTop: 20}} alt="xo" height="60" width=""></img>
-                            <button
-                            onClick={this.refresh}
-                            className={this.bootstrapConbiner("col-2 text-black h-50 bg-warning align-self-center rounded-pill p-2")}>
-                                refresh
-                            </button>
-                            </Aux> : 
-                            <div className="col-6" />
-                        }
                         <div
-                        className={this.bootstrapConbiner("col-12 text-center text-light")}>
-                        Player 2: {this.state.player2Score}
+                            className={this.containerClasses}>
+                            {
+                                this.state.winner ?
+                                    <Modal
+                                        winner={this.state.winner}
+                                        refresh={this.replay} /> :
+                                    <div className={this.boxesClasses}>
+                                        {this.boxes}
+                                    </div>
+                            }
                         </div>
-                    </div>
-                    <div
-                    className={this.containerClasses}>
-                        {
-                            this.state.winner ?
-                                <Modal
-                                    winner={this.state.winner}
-                                    refresh={this.replay} /> :
-                                <div className={this.boxesClasses}>
-                                    {this.boxes}
-                                </div>
-                        }
                     </div>
                 </div>
+
             </Aux>
         )
     }

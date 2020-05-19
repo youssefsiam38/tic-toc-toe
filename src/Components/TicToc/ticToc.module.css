@@ -1,7 +1,12 @@
 .ticToc {
     height: 300px;
     width: 400px;
-    background-color: aliceblue;
+    background-color: white;
+}
+
+.body {
+    background-color: black;
+    height: 885px;
 }
 
 .img {
