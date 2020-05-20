@@ -53,22 +53,22 @@ class ticToc extends Component {
 
             this.setState((prevState) => {
                 let checkedBoxes = [...prevState.checkedBoxes, id]
-                return { counter: prevState.counter++, checkedBoxes }
+                return { counter: prevState.counter + 1, checkedBoxes }
             })
-            this.forceUpdate()
+
 
             if (this.checkWinner(id, symbol)) {
                 let winnerNo = symbol === 'x' ? 1 : 2
                 this.setState({ winner: winnerNo })
                 if (winnerNo === 1)
                     this.setState((prev) => {
-                        let newScore = prev.player1Score++
-                        return { player1Score: newScore }
+                        
+                        return { player1Score: prev.player1Score + 1 }
                     })
                 else {
                     this.setState((prev) => {
-                        let newScore = prev.player2Score++
-                        return { player2Score: newScore }
+                        
+                        return { player2Score: prev.player2Score + 1}
                     })
 
                 }
@@ -201,7 +201,7 @@ class ticToc extends Component {
                                         className={this.bootstrapConbiner("col-2 text-light h-50 bg-danger align-self-center rounded-pill p-2 ")}>
                                         Undo
                                     </button>
-                                    <img src="/xopic.png" className={myClasses.img} style={{ marginTop: 20 }} alt="xo" height="60" width=""></img>
+                                    <img src="xopic.png" className={myClasses.img} style={{ marginTop: 20 }} alt="xo" height="60" width=""></img>
                                     <button
                                         onClick={this.refresh}
                                         className={this.bootstrapConbiner("col-2 text-black h-50 bg-warning align-self-center rounded-pill p-2")}>
