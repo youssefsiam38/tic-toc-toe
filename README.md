@@ -4,4 +4,4 @@
 
 ![toc toc toe](imgs/tic-toc.png (tic toc))
 
-<a style="text-align: center; font-size: 100px" href="https://youssefsiam38.github.io/tic-toc-toe/" >Play<a>
+<p style="font-size: 100px;" ><a style="text-align: center;" href="https://youssefsiam38.github.io/tic-toc-toe/" >Play<a></p>
